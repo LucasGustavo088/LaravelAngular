@@ -44,7 +44,6 @@ export class QuoteComponent implements OnInit {
       .subscribe(
         () => {
           this.quoteDeleted.emit(this.quote);
-          console.log('Quote deletada.');
         }
       );
   }

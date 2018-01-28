@@ -9,13 +9,18 @@ import { QuotesComponent } from './quotes/quotes.component';
 import { NewQuoteComponent } from './new-quote/new-quote.component';
 import { routing } from "./app.routing";
 import { QuoteService } from "./quote.service";
+import { SigninComponent } from './signin/signin.component';
+import { SignupComponent } from './signup/signup.component';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     QuoteComponent,
     QuotesComponent,
-    NewQuoteComponent
+    NewQuoteComponent,
+    SigninComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +28,7 @@ import { QuoteService } from "./quote.service";
     HttpModule,
     routing
   ],
-  providers: [QuoteService],
+  providers: [QuoteService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
