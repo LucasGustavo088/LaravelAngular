@@ -1,17 +1,10 @@
 <div id="app">
   <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <a href="#" [routerLink]="['/']">Quotes</a> |
-        <a href="#" [routerLink]="['/new-quote']"> Adicionar uma nova Quote </a> |
-        <a href="#" *ngIf="this.auth()" [routerLink]="['/signup']"> Registrar </a> |
-        <a href="#" *ngIf="this.auth()" [routerLink]="['/signin']"> Logar </a> 
-      </div>
-    </div>
+    <app-header></app-header>
     <hr>
     <div class="row">
       <div class="col-xs-12">
-        <router-outlet>
+        <router-outlet signInEvent="onSignInEvent($event)">
         </router-outlet>
       </div>
     </div>

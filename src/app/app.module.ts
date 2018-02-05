@@ -12,6 +12,9 @@ import { QuoteService } from "./quote.service";
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { AuthService } from './auth.service';
+import { AuthGuard } from './auth.guard';
+import { HeaderComponent } from './routing/header/header.component';
+import { MenuLateralComponent } from './menu-lateral/menu-lateral.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import { AuthService } from './auth.service';
     QuotesComponent,
     NewQuoteComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    HeaderComponent,
+    MenuLateralComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +33,7 @@ import { AuthService } from './auth.service';
     HttpModule,
     routing
   ],
-  providers: [QuoteService, AuthService],
+  providers: [QuoteService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

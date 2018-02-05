@@ -22,4 +22,8 @@ export class SignupComponent implements OnInit {
       );
   }
 
+  signInEvent(event) {
+    console.log(event);
+  }
+
 }
