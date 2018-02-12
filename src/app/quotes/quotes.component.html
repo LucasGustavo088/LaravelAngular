@@ -1,3 +1,30 @@
-<button class="btn btn-primary" (click)="onGetQuotes()">Get Quotes</button>
-<hr>
-<app-quote *ngFor="let quote of quotes" [quote]="quote" (quoteDeleted)="onDeleted($event)"></app-quote>
+    
+    <!-- <button class="btn btn-primary">Get Quotes</button> -->
+    <div class="example-container mat-elevation-z8">
+        <div class="example-header">
+            <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+        </div>
+        <mat-table #table [dataSource]="dataSource">
+      
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+      
+          <!-- Position Column -->
+          <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+            <mat-cell *matCellDef="let quote"> {{quote.id}} </mat-cell>
+          </ng-container>
+      
+          <!-- Name Column -->
+          <ng-container matColumnDef="content">
+            <mat-header-cell *matHeaderCellDef> Conteúdo </mat-header-cell>
+            <mat-cell *matCellDef="let quote"> {{quote.content}} </mat-cell>
+          </ng-container>
+      
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </div>
+    <app-quote class="row" *ngFor="let quote of quotes" [quote]="quote" (quoteDeleted)="onDeleted($event)"></app-quote>

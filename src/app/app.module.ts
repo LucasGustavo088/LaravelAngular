@@ -3,6 +3,13 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+//Dependencias
+//import { PNotifySettings } from 'ng2-pnotify';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatTableModule} from '@angular/material';
+import {MatInputModule} from '@angular/material';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 import { AppComponent } from './app.component';
 import { QuoteComponent } from './quote/quote.component';
 import { QuotesComponent } from './quotes/quotes.component';
@@ -15,6 +22,9 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { HeaderComponent } from './routing/header/header.component';
 import { MenuLateralComponent } from './menu-lateral/menu-lateral.component';
+import { CategoriasModule } from './modules/features/categorias/categorias.module';
+import { ActiveRouteDirective } from './-directives/active-route.directive';
+
 
 @NgModule({
   declarations: [
@@ -25,13 +35,19 @@ import { MenuLateralComponent } from './menu-lateral/menu-lateral.component';
     SigninComponent,
     SignupComponent,
     HeaderComponent,
-    MenuLateralComponent
+    MenuLateralComponent,
+    ActiveRouteDirective,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    CategoriasModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [QuoteService, AuthService, AuthGuard],
   bootstrap: [AppComponent]

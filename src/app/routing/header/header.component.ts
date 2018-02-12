@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AuthService } from "../../auth.service";
 
@@ -11,7 +12,10 @@ export class HeaderComponent implements OnInit {
 
   isLogged: boolean = false;
 
-  constructor(private authService: AuthService) {
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {
   	this.verificarUsuarioLogado();
   }
 

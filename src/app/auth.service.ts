@@ -57,7 +57,6 @@ export class AuthService {
 
   isLogged() {
     let token = localStorage.getItem('currentUser');
-    console.log(token);
     if(token != null) {
       return true;
      } else {
