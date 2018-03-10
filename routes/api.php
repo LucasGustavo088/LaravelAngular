@@ -14,7 +14,8 @@ use Illuminate\Http\Request;
 */
 
 Route::post('/quote', [
-    'uses' => 'QuoteController@postQuote'
+    'uses' => 'QuoteController@postQuote',
+    'middleware' => 'auth.jwt'
 ]);
 
 Route::get('/quotes', [
@@ -22,9 +23,19 @@ Route::get('/quotes', [
 ]);
 
 Route::put('/quote/{id}', [
-    'uses' => 'QuoteController@putQuote'
+    'uses' => 'QuoteController@putQuote',
+    'middleware' => 'auth.jwt'
 ]);
 
 Route::delete('/quote/{id}', [
-    'uses' => 'QuoteController@deleteQuote'
+    'uses' => 'QuoteController@deleteQuote',
+    'middleware' => 'auth.jwt'
+]);
+
+Route::post('/user', [
+   'uses' => 'UserController@signup'
+]);
+
+Route::post('/user/signin', [
+   'uses' => 'UserController@signin'
 ]);
